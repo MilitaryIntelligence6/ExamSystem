@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>管理员后台</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+
+    <style>
+        .admin-left-nav-img {
+            border-radius: 0;
+            width: 20px;
+            height: 20px;
+            padding-right: 5px
+        }
+    </style>
+
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header" th:fragment="header">
+        <div class="layui-logo">上机考试系统</div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item"><a  th:href="@{/login}" href="">教师界面</a></li>
+            <!--            <li class="layui-nav-item"><a href="">考试清理</a></li>-->
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item" lay-unselect="">
+                <a href="javascript:;">
+                    <img alt="头像" src="images/admin/avatar.png" class="layui-nav-img">
+                    <span th:text="${session.admin.name}"></span>
+                    <span class="layui-nav-more"></span>
+                </a>
+                <dl class="layui-nav-child  layui-anim layui-anim-upbit">
+                    <dd><a href="javascript:;" th:href="@{/adminInfoPage}">修改信息</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;" th:href="@{/adminLogout}">注销</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black" th:fragment="left_side_bar">
+        <div class="layui-side-scroll">
+            <ul class="layui-nav layui-nav-tree">
+                <li class="layui-nav-item"
+                    th:class="${admin == null? 'layui-nav-item': 'layui-nav-item layui-nav-itemed'}">
+                    <a href="" th:href="@{/adminInfoPage}">
+                        <img alt="修改信息" src="images/admin/message.png" class="admin-left-nav-img">
+                        <span>
+                          修改信息
+                        </span>
+                        <span class="layui-badge-dot" th:class="${adminCount == 0?'layui-badge-dot':''}"></span>
+
+                    </a>
+                </li>
+                <li class="layui-nav-item"
+                    th:class="${teacherManager == null? 'layui-nav-item': 'layui-nav-item layui-nav-itemed'}">
+                    <a class="" href="javascript:;" th:href="@{/adminTeacherListPage}">
+                        <img alt="教师管理" src="images/admin/teacher_manager.png" class="admin-left-nav-img">
+                        <span>
+                          教师管理
+                        </span>
+                    </a>
+                </li>
+                <li class="layui-nav-item"
+                    th:class="${examManager == null? 'layui-nav-item': 'layui-nav-item layui-nav-itemed'}">
+                    <a href="javascript:;" th:href="@{/adminExamManagerPage}">
+                        <img alt="考试清理" src="images/admin/exam_clear.png" class="admin-left-nav-img">
+                        <span>
+                          考试清理
+                        </span>
+                    </a>
+                </li>
+                <li class="layui-nav-item"
+                    th:class="${setting == null? 'layui-nav-item': 'layui-nav-item layui-nav-itemed'}">
+                    <a href="" th:href="@{/adminExamSettingPage}">
+                        <img alt="系统配置" src="images/admin/exam_setting.png" class="admin-left-nav-img">
+                        <span>
+                          系统配置
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;">内容主体区域</div>
+    </div>
+
+    <div class="layui-footer" th:fragment="footer">
+        <!-- 底部固定区域 -->
+        © 上机考试系统
+    </div>
+</div>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="/layui/layui.all.js"></script>
+
+</body>
+</html>

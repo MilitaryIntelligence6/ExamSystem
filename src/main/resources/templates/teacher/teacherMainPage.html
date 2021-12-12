@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>教师主页</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <style type="text/css">
+        html, body {
+            background-color: white;
+            height: auto;
+        }
+
+        .content {
+            height: 100%;
+            width: 70%;
+            margin: auto;
+        }
+
+        .layui-card {
+            width: 32%;
+            background-color: #f2f2f2;
+            height: 350px;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="teacher/framework::header"></div>
+
+<div class="content" style="display: flex; flex-flow: column;">
+    <div style="height: 100px;display: flex; align-items: center">
+        <h1>
+            <img alt="图标" src="images/teacher/指南.png" height="50px">
+            上机考试系统教师操作指南</h1>
+    </div>
+    <div style="display: flex;justify-content: space-between;margin-top:10px">
+        <div class="layui-card">
+            <div class="layui-card-header">考前操作</div>
+            <div class="layui-card-body">
+                <ul>
+                    <li>1.可以新建考试：指定考试名称、开始时间等</li>
+                    <li>2.可以编辑自己创建的、未开始的考试</li>
+                    <li>3.可以上传试卷、开启考试、学生名单导入</li>
+                </ul>
+            </div>
+        </div>
+        <div class="layui-card">
+            <div class="layui-card-header">考中管理</div>
+            <div class="layui-card-body">
+                <ul>
+                    <li>1.可以查看考试情况</li>
+                    <li>2.可以管理学生信息，手工添加个别学生信息</li>
+                    <li>3.可以解除学生登录锁定</li>
+                    <li>4.可以添加或删除通知信息</li>
+                </ul>
+            </div>
+        </div>
+        <div class="layui-card">
+            <div class="layui-card-header">考后操作</div>
+            <div class="layui-card-body">
+                <ul>
+                    <li>1.主考教师（考试创建者）可以结束考试</li>
+                    <li>2.主考教师可以打包下载学生提交文件</li>
+                    <li>3.如果管理员设置，主考教师可以清除和删除考试</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="/layui/layui.all.js"></script>
+
+</body>
+</html>
