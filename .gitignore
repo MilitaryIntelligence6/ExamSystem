@@ -1,2 +1,4 @@
 # 项目排除路径
 /target/
+.gitignore
+需求分析与总体设计.doc
